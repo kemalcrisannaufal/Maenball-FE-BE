@@ -1,0 +1,162 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #f3f4f7cf;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 93vh;
+}
+
+
+p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    padding-left: 2rem;
+    padding-right: 4rem;
+
+    display: flex;
+    background: linear-gradient(
+        to left,
+        rgba(0, 75, 117, 1),
+        rgba(52, 61, 135, 1)
+    );
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+}
+
+#logo {
+    height: 60px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(
+        to left,
+        rgba(0, 75, 117, 1),
+        rgba(52, 61, 135, 1)
+    );
+    min-height: 7vh;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    margin-top: 2rem;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(52, 61, 135, 1);
+    min-width: 100px;
+    max-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(52, 61, 135, 1);
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(77, 87, 162);
+}
+
+#profile-mobile {
+    display: none;
+}
+
+.admin-bg {
+    background-image: url("/images/images2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    .navbar ul li a {
+        font-size: 13px;
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #profile {
+        display: none;
+    }
+
+    #profile-mobile {
+        display: block;
+    }
+
+    #nav {
+        display: none;
+    }
+
+    #nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #nav ul li {
+        text-align: center;
+    }
+
+    .nav.active ul {
+        display: flex;
+    }
+}
+

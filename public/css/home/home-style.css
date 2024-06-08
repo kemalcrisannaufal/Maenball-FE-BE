@@ -1,0 +1,249 @@
+.news-homepage {
+    width: 100%;
+    max-height: 450px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    display: none;
+}
+
+.news-active {
+    display: block;
+}
+
+.img-news {
+    object-fit: cover;
+    width: 100%;
+}
+
+.news-title-homepage {
+    position: absolute;
+    top: 65%;
+    left: 5%;
+    color: white;
+    width: 90%;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.schedule-section {
+    width: 100%;
+    margin-block: 1.5rem;
+}
+
+.schedule-box {
+    width: 100%;
+    height: 75px;
+    padding: 1rem;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.highlight-box {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    height: 235px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        to left,
+        rgb(1, 109, 171),
+        rgba(52, 61, 135, 1)
+    );
+}
+
+.highlight-thumbnail {
+    object-fit: cover;
+    width: 100%;
+}
+
+.th-standings {
+    background-color: rgb(2, 60, 94);
+    color: white;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 80%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+a:hover {
+    opacity: 0.8;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+#standings-mobile {
+    display: none;
+}
+
+.button {
+    position: absolute;
+    border: none;
+    font-size: 2.5rem;
+    color: white;
+    background: none;
+    z-index: 2;
+    top: 45%;
+}
+
+.prev {
+    left: 3%;
+}
+
+.next {
+    left: 95%;
+}
+
+.news-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.news-wrapper {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.score-box {
+    display: flex;
+    gap: 5rem;
+}
+
+.versus-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+}
+
+.score-text {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.home-team, .away-team {
+    flex: 1;
+}
+
+
+@media (max-width: 1200px) {
+    .news-title-homepage {
+        position: absolute;
+        top: 60%;
+        left: 7%;
+        color: white;
+        width: 90%;
+        font-size: 25px;
+    }
+
+    .button {
+        top: 40%;
+    }
+
+    .stadium {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    #standings-web {
+        display: none;
+    }
+    #standings-mobile {
+        display: block;
+    }
+    #right-side {
+        width: 100%;
+    }
+
+    .stadium {
+        display: none;
+    }
+
+    .news-title-homepage {
+        font-size: 30px;
+        width: 90%;
+        left: 10%;
+    }
+
+}
+
+@media (max-width: 767px) {
+    #standings-web {
+        display: none;
+    }
+    #standings-mobile {
+        display: block;
+    }
+
+    .news-title-homepage {
+        position: absolute;
+        top: 52%;
+        left: 5%;
+        color: white;
+        width: 90%;
+        font-size: 20px;
+    }
+
+    .news-slider{
+        height: 250px;
+    }
+
+    .button {
+        font-size: 1.5rem;
+    }
+
+    .highlight-box {
+        height: 150px;
+    }
+
+    .stadium, .date-time {
+        display: none;
+    }
+
+    .team-responsive {
+        width: 75px;
+    }
+
+    .score-responsive {
+        min-width: 15px;
+    }
+
+
+}

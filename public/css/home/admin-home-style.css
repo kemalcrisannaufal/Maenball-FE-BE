@@ -1,0 +1,19 @@
+a, a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.8;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.box {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 5rem;
+    background: linear-gradient(to left, rgba(0, 75, 117, 1), rgba(52, 61, 135, 1)); ;
+}

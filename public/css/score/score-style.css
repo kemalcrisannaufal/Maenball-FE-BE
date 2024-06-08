@@ -1,0 +1,192 @@
+body {
+    color: rgb(75, 75, 75);
+}
+
+.img-box {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#main-score {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.date-main-info, .additional-main-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight:400;
+    min-width: 650px;
+    color: rgb(60, 60, 60);
+}
+
+.date-main-info {
+    position: absolute;
+    top: 4%;
+    left:20%;
+}
+
+.additional-main-info {
+    position: absolute;
+    left: 20%;
+    top: 87%;
+}
+
+.score-main-box {
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 1.25rem;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgb(220, 220, 220);
+    background-image: url('/images/score-main-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.score-box {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-image: url('/images/score-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+@media (max-width: 1400px) {
+    .img-box {
+        background-color: rgba(52, 61, 135, 1);
+        border-radius: 10px;
+    }
+
+    .date-main-info, .additional-main-info {
+        color: white;
+    }
+
+    .date-main-info {
+        left: 30%;
+        min-width: 400px;
+        max-width: 400px;
+    }
+
+    #main-score {
+        left: 22%;
+    }
+
+    .additional-main-info {
+        min-width: 400px;
+        max-width: 400px;
+        left: 30%;
+    }
+    #img {
+        display: none;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .img-box {
+        background-color: rgba(52, 61, 135, 1);
+        border-radius: 10px;
+    }
+
+    .date-main-info, .additional-main-info {
+        color: white;
+    }
+
+    .date-main-info {
+        left: 25%;
+        min-width: 400px;
+        max-width: 400px;
+    }
+
+    #main-score {
+        left: 15%;
+    }
+
+    .additional-main-info {
+        min-width: 400px;
+        max-width: 400px;
+        left: 25%;
+    }
+    #img {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .img-box {
+        background-color: rgba(52, 61, 135, 1);
+        border-radius: 10px;
+    }
+
+    .date-main-info, .additional-main-info {
+        color: white;
+    }
+
+    .date-main-info {
+        left: 10%;
+        min-width: 400px;
+        max-width: 400px;
+    }
+
+    #main-score {
+        left: 2%;
+    }
+
+    .additional-main-info {
+        min-width: 400px;
+        max-width: 400px;
+        left: 10%;
+    }
+    #img {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .img-box {
+        background-color: rgba(52, 61, 135, 1);
+        border-radius: 10px;
+    }
+
+    .date-main-info, .additional-main-info {
+        color: white;
+    }
+
+    .date-main-info {
+        left: 10%;
+        min-width: 400px;
+        max-width: 400px;
+    }
+
+    #main-score {
+        left: 2%;
+    }
+
+    .additional-main-info {
+        min-width: 400px;
+        max-width: 400px;
+        left: 10%;
+    }
+    #img {
+        display: none;
+    }
+}
+
+

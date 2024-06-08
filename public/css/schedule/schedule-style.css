@@ -1,0 +1,156 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+.item-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.club-match-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.match-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-inline: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.img-box {
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-club {
+    width: 75px;
+}
+
+.newest-schedule-match {
+    position: absolute;
+    z-index: 1;
+    left: 30%;
+    color: white;
+    top: 25%;
+}
+
+.newest-schedule-clubname {
+    position: absolute;
+    width: 200px;
+    z-index: 1;
+    left: 140%;
+    color: white;
+    top: 60%;
+}
+
+#no-schedule {
+    border-radius: 10px;
+    background: linear-gradient(to left, rgba(0, 75, 117, 1), rgb(102, 115, 214));
+}
+
+
+
+@media (max-width: 1400px) {
+    .img-box {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 75, 117, 1);
+    }
+
+    #newest-schedule-club {
+        display: none;
+    }
+
+    .img {
+        position: absolute;
+        top: 15%;
+    }
+
+    .newest-schedule-match {
+        top: 15%;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .img-box {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 75, 117, 1);
+    }
+
+    #newest-schedule-club {
+        display: none;
+    }
+
+    .img {
+        position: absolute;
+        top: 25%;
+    }
+
+    .newest-schedule-match {
+        top: 15%;
+    }
+}
+
+@media (max-width: 991px) {
+    .img-box {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 75, 117, 1);
+    }
+
+    #newest-schedule-club {
+        display: none;
+    }
+
+    .img {
+        position: absolute;
+        top: 23%;
+    }
+
+    .newest-schedule-match {
+        top: 15%;
+    }
+}
+
+@media (max-width: 767px) {
+    .img-box {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 75, 117, 1);
+    }
+
+    #newest-schedule-club {
+        display: none;
+    }
+
+    .img {
+        position: absolute;
+        top: 23%;
+    }
+
+    .newest-schedule-match {
+        top: 18%;
+    }
+}

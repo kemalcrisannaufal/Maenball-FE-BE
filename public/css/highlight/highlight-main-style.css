@@ -1,0 +1,260 @@
+iframe {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.main-video-box {
+    width: 100%;
+    height: 600px;
+    margin-top: 1rem;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.video-box {
+    width: 420px;
+    height: 200px;
+    margin-top: 1rem;
+    border: solid 1px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    background: linear-gradient(
+        to left,
+        rgb(1, 109, 171),
+        rgba(52, 61, 135, 1)
+    );
+    box-shadow: 10px 10px 5px grey;
+}
+
+.side-thumbnail {
+    width: 100%;
+    object-fit: cover;
+}
+
+hr {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border: 1px solid;
+}
+
+.main-video-description {
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 120px;
+    margin-top: 1rem;
+    border: solid 1px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-inline: 20px;
+    border-radius: 5px;
+    background: linear-gradient(
+        to left,
+        rgb(1, 109, 171),
+        rgb(60, 71, 151)
+    );
+    color: white;
+}
+
+a {
+    cursor: pointer;
+}
+
+.main-video-container {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+i {
+    margin: 0;
+    padding: 0;
+}
+
+.highlight-title {
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+    position: absolute;
+    font-weight: bold;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgb(2, 60, 94);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.highlight:hover .highlight-title {
+    opacity: 0.8;
+}
+.icon-love,
+.icon-love-liked {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.icon-love {
+    color: grey;
+}
+
+.icon-love-liked {
+    color: red;
+}
+
+.btn-like {
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    float: right;
+    padding: 10px;
+    background: linear-gradient(
+        to left,
+        rgb(6, 133, 207),
+        rgba(52, 61, 135, 1)
+    );
+    width: 50px;
+}
+
+.btn-liked-videos {
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: solid 1px;
+    color: white;
+    background-color: rgba(52, 61, 135, 1);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.side-video {
+    width: 100%;
+    height: 150px;
+    margin-top: 1rem;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    background: linear-gradient(
+        to left,
+        rgb(1, 109, 171),
+        rgba(52, 61, 135, 1)
+    );
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.img-side-video {
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.highlight-box {
+    position: relative;
+    width: 412px;
+    height: 165px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    box-shadow: 5px 5px 5px grey;
+    overflow: hidden;
+    background: linear-gradient(
+        to left,
+        rgb(1, 109, 171),
+        rgba(52, 61, 135, 1)
+    );
+    display: flex;
+    align-items: center;
+}
+
+.horizontal-highlight-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+.img-highlight {
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1400px) {
+    .highlight-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .horizontal-highlight-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-box {
+        max-width: 330px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .horizontal-highlight-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-box {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 991px) {
+    .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .horizontal-highlight-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-box {
+        max-width: 330px;
+    }
+}
+
+@media (max-width: 767px) {
+    .highlight-grid {
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        justify-items: center;
+    }
+
+    .video-box {
+        max-width: 100%;
+    }
+
+    .horizontal-highlight-box {
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        justify-items: center;
+    }
+}
