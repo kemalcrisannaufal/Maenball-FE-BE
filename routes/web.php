@@ -9,6 +9,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\NewsCommentController;
 
@@ -69,6 +70,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/list-teams', [TeamController::class, "index"])->middleware('auth:admin');
     Route::get('/add-team', [TeamController::class, "create"])->middleware('auth:admin');
     Route::post('/team', [TeamController::class, "store"])->middleware('auth:admin');
+
+    Route::get('/list-seasons', [SeasonController::class, "index"])->middleware('auth:admin');
+    Route::get('/add-season', [SeasonController::class, "create"])->middleware('auth:admin');
+    Route::post('/season', [SeasonController::class, "store"])->middleware('auth:admin');
 });
 
 Route::prefix('api')->group(function () {

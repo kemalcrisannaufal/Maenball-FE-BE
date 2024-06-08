@@ -24,6 +24,11 @@
                 Teams
             </div>
         </a>
+        <a href="/admin/list-seasons">
+            <div class="box">
+                Seasons
+            </div>
+        </a>
     </div>
 </div>
 
