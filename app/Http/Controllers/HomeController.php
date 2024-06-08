@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\Video;
 use GuzzleHttp\Client;
+use App\Models\Fixture;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -58,6 +59,13 @@ class HomeController extends Controller
 
     public function index()
     {
+
+        $latest_news = News::latest()->take(3)->get();
+        $highlights = Video::orderBy('created_at', 'desc')
+                ->take(4)
+                ->get();
+
+
         $client = new Client();
         $response = $client->request('GET', 'https://apiv3.apifootball.com/?action=get_standings&league_id=3&APIkey=0cf995bcb31e9a372e3560438810045a4b70127add7c56f8081296664103e877');
         $responseBody = $response->getBody()->getContents();
@@ -72,15 +80,26 @@ class HomeController extends Controller
         $groupG = array_slice($data, 24, 28);
         $groupH = array_slice($data, 28, 32);
 
-        dd($groupA);
         $standings = [$groupA, $groupB, $groupC, $groupD, $groupE, $groupF, $groupG, $groupH];
+
+        $fixtures = Fixture::with(['homeTeam', 'awayTeam'])->take(5)->get()->toArray();
+
+        if (count($fixtures) >= 5) {
+            $fixtures = array_slice($fixtures, 0, 5);
+            $score = null;
+        } else {
+            // $client = new Client();
+            // $response = $client->request('GET', 'https://livescore-api.com/api-client/scores/history.json?key=e6l0EOXMmvzA4Ckl&secret=SGWyI0VUktY9AeLPl6QZVOMijmSnYcJR&competition_id=244&from=2024-01-01');
+            // $score = json_decode($response->getBody(), true)['data']['match'];
+            // $score = array_reverse(array_slice($score, 0, 5 - count($fixtures)));
+        }
 
         return view('home', [
             'latest_news' => $latest_news,
             'highlights' => $highlights,
             'standings' => $standings,
-            'schedule' => $schedule,
-            'score' => $score
+            'fixtures' => $fixtures,
+            'score' => null
         ]);
 
     }

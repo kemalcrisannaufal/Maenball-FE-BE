@@ -18,32 +18,53 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">Group {{ $value[0]['group_name'] }}</th>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">Pts</th>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">W</th>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">D</th>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">L</th>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">Ga</th>
-                                            <th style="background-color: rgb(2, 60, 94);
-                                            color: white;">Gd</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                Group {{ $value[0]['league_round'] }}</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                Pts</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                W</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                D</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                L</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                Ga</th>
+                                            <th
+                                                style="background-color: rgb(2, 60, 94);
+                                            color: white;">
+                                                Gd</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @for ($i = 0; $i < 4; $i++)
                                             <tr>
-                                                <td>{{ $value[$i]['name'] }}</td>
-                                                <td>{{ $value[$i]['points'] }}</td>
-                                                <td>{{ $value[$i]['won'] }}</td>
-                                                <td>{{ $value[$i]['drawn'] }}</td>
-                                                <td>{{ $value[$i]['lost'] }}</td>
-                                                <td>{{ $value[$i]['goals_scored'] }}</td>
-                                                <td>{{ $value[$i]['goals_conceded'] }}</td>
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <img src="{{ $value[$i]['team_badge'] }}"
+                                                            alt="{{ $value[$i]['team_name'] }}" width="30px"
+                                                            height="30px">
+                                                        {{ $value[$i]['team_name'] }}
+                                                    </div>
+                                                </td>
+                                                <td>{{ $value[$i]['overall_league_PTS'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_W'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_D'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_L'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_GF'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_GA'] }}</td>
                                             </tr>
                                         @endfor
                                     </tbody>
@@ -76,13 +97,13 @@
                     <button class="button next">&#10095;</button>
                 </div>
 
-                @if (count($schedule) > 0)
+                @if (count($fixtures) > 0)
                     <div class="schedule-section">
                         <div class="d-flex justify-content-between mb-3">
                             <p class="fw-bold fs-4">Next Match</p>
                             <a href="/schedule" class="fw-bold fs-4 text-decoration-none text-dark">View All</a>
                         </div>
-                        @for ($i = 0; $i < count($schedule); $i++)
+                        @for ($i = 0; $i < count($fixtures); $i++)
                             @php
                                 $color1 = 'rgb(' . (1 + $i * 15) . ', 109, 171)';
                                 $color2 = 'rgba(' . (52 + $i * 15) . ', 61, 135, 1)';
@@ -92,7 +113,7 @@
                                 <div class="d-flex align-items-center gap-4 w-100" style="color: ">
                                     <div class="versus-container">
                                         <div class="team home-team team-responsive">
-                                            <p>{{ $schedule[$i]['home_name'] }}</p>
+                                            <p>{{ $fixtures[$i]['home_team']['name'] }}</p>
                                         </div>
                                         <div class="score score-responsive">
                                             <p class="mb-0">|</p>
@@ -100,32 +121,27 @@
                                             <p class="mb-0">|</p>
                                         </div>
                                         <div class="team away-team team-responsive">
-                                            <p>{{ $schedule[$i]['away_name'] }}</p>
+                                            <p>{{ $fixtures[$i]['away_team']['name'] }}</p>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center gap-3">
-                                        @php
-                                            $utcTime = $schedule[$i]['date'] . ' ' . $schedule[$i]['time'];
-                                            $localTime = Carbon\Carbon::parse($utcTime)
-                                                ->setTimezone('Asia/Jakarta')
-                                                ->format('Y-m-d H:i');
-                                        @endphp
                                         <i class="fas fa-clock"></i>
-                                        <p>{{ $localTime }}</p>
+                                        <p>{{ $fixtures[$i]['kickoff'] }}</p>
                                     </div>
                                     <div class="stadium">
                                         <div
                                             class="d-flex justify-content-center align-items-center gap-3 location-stadium">
                                             <i class="fas fa-map-marker-alt"></i>
-                                            <p>{{ $schedule[$i]['location'] }}</p>
+                                            <p>{{ $fixtures[$i]['location'] }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endfor
                     </div>
-                @endfor
                 @endif
 
+                {{--
                 @if (count($score) > 0)
                     <div class="d-flex justify-content-between mb-3 mt-3">
                         <p class="fw-bold fs-4">Last Matches</p>
@@ -173,7 +189,7 @@
                         </div>
                     @endfor
                 @endif
-
+--}}
 
                 <div class="highlight-section">
                     <div class="d-flex justify-content-between mb-3">
@@ -199,7 +215,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Group {{ $value[0]['group_name'] }}</th>
+                                            <th>Group {{ $value[0]['league_round'] }}</th>
                                             <th>Pts</th>
                                             <th>W</th>
                                             <th>D</th>
@@ -211,13 +227,21 @@
                                     <tbody>
                                         @for ($i = 0; $i < 4; $i++)
                                             <tr>
-                                                <td>{{ $value[$i]['name'] }}</td>
-                                                <td>{{ $value[$i]['points'] }}</td>
-                                                <td>{{ $value[$i]['won'] }}</td>
-                                                <td>{{ $value[$i]['drawn'] }}</td>
-                                                <td>{{ $value[$i]['lost'] }}</td>
-                                                <td>{{ $value[$i]['goals_scored'] }}</td>
-                                                <td>{{ $value[$i]['goals_conceded'] }}</td>
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <img src="{{ $value[$i]['team_badge'] }}"
+                                                            alt="{{ $value[$i]['team_name'] }}" width="30px"
+                                                            height="30px">
+                                                        {{ $value[$i]['team_name'] }}
+                                                        {{ $value[$i]['team_name'] }}
+                                                    </div>
+                                                </td>
+                                                <td>{{ $value[$i]['overall_league_PTS'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_W'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_D'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_L'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_GF'] }}</td>
+                                                <td>{{ $value[$i]['overall_league_GA'] }}</td>
                                             </tr>
                                         @endfor
                                     </tbody>
