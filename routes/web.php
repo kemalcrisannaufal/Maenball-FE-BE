@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\SeasonController;
+use App\Http\Controllers\FixtureController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\NewsCommentController;
 
@@ -74,6 +75,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/list-seasons', [SeasonController::class, "index"])->middleware('auth:admin');
     Route::get('/add-season', [SeasonController::class, "create"])->middleware('auth:admin');
     Route::post('/season', [SeasonController::class, "store"])->middleware('auth:admin');
+
+    Route::get('/list-fixtures', [FixtureController::class, "index"])->middleware('auth:admin');
+    Route::get('/add-fixture', [FixtureController::class, "create"])->middleware('auth:admin');
+    Route::post('/fixture', [FixtureController::class, "store"])->middleware('auth:admin');
+    Route::get('/fixture/edit/{id}', [FixtureController::class, 'edit'])->middleware('auth:admin');
+    Route::put('/fixture/edit/{id}', [FixtureController::class, 'update'])->middleware('auth:admin');
+    Route::delete('/fixture/delete/{id}', [FixtureController::class, 'destroy'])->middleware('auth:admin');
 });
 
 Route::prefix('api')->group(function () {

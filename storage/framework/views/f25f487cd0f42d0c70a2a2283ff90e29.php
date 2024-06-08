@@ -26,10 +26,11 @@
     </script>
 </head>
 
-<body class="admin-bg">
+<body>
     <div class="page-container">
         <div class="container-fluid navbar">
-            <a href="/admin/dashboard"><img src="<?php echo e(asset('/images/ligachamp.png')); ?>" alt="" id="logo"></a>
+            <a href="/admin/dashboard"><img src="<?php echo e(asset('/images/ligachamp.png')); ?>" alt=""
+                    id="logo"></a>
             <div class="nav">
                 <ul class="d-flex gap-5 align-items-center" id="nav">
                     <li><a href="/admin/dashboard">Beranda</a></li>
@@ -39,7 +40,6 @@
                 </ul>
             </div>
         </div>
-
         <?php echo $__env->yieldContent('content'); ?>
     </div>
 

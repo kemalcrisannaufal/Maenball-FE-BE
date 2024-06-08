@@ -61,3 +61,14 @@ a {
     text-decoration: none;
     color: white;
 }
+
+.team-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.vs-container {
+    text-align: center;
+    font-weight: bold;
+}

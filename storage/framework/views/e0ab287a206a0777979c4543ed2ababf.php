@@ -27,6 +27,11 @@
                 Seasons
             </div>
         </a>
+        <a href="/admin/list-fixtures">
+            <div class="box">
+                Fixtures
+            </div>
+        </a>
     </div>
 </div>
 
