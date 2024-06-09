@@ -22,16 +22,16 @@ class Fixture extends Model
 
     public function homeTeam()
     {
-        return $this->belongsTo(Team::class, "id_home_team");
+        return $this->belongsTo(Team::class, "id_home_team", "id");
     }
 
     public function awayTeam()
     {
-        return $this->belongsTo(Team::class, "id_away_team");
+        return $this->belongsTo(Team::class, "id_away_team", "id");
     }
 
     public function season()
     {
-        return $this->belongsTo(Season::class, "id_season");
+        return $this->belongsTo(Season::class, "id_season", "id");
     }
 }

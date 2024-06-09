@@ -2,37 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Score;
 use GuzzleHttp\Client;
+use App\Models\Fixture;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ScoreController extends Controller
 {
-    public function index()
+    public function indexAdmin()
     {
-        $client = new Client();
-        $response = $client->request('GET', 'https://livescore-api.com/api-client/scores/history.json?key=e6l0EOXMmvzA4Ckl&secret=SGWyI0VUktY9AeLPl6QZVOMijmSnYcJR&competition_id=244&from=2024-01-01');
-        $data = json_decode($response->getBody(), true);
-
-
-        $latest_match = array_slice($data['data']['match'], -1);
-        $matches = array_reverse(array_slice($data['data']['match'], 0, count($data['data']['match']) - 1));
-
-        $matchesCollection = collect($matches);
-        $perPage = 10;
-
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $paginatedMatches = new LengthAwarePaginator(
-            $matchesCollection->forPage($currentPage, $perPage),
-            $matchesCollection->count(),
-            $perPage,
-            $currentPage,
-    ['path' => request()->url(), 'query' => request()->query()]
-);
-
-        return view('score.score', [
-            'latest_match' => $latest_match,
-            'matches' => $paginatedMatches
+        $scores = Score::with('fixture.homeTeam', 'fixture.awayTeam', 'fixture.season')->paginate(10);
+        return view('score.admin.listScore', [
+            'scores' => $scores
         ]);
     }
+    public function store($id, Request $request)
+    {
+        $score = new Score();
+        $score->id_fixture = $id;
+        $score->home_score = $request->home_score;
+        $score->away_score = $request->away_score;
+        $score->save();
+
+        $fixture = Fixture::findOrFail($id);
+        $fixture->status = 'finished';
+        $fixture->save();
+
+        return redirect('/admin/list-scores');
+    }
+
+    public function destroy($id)
+    {
+        $score = Score::findOrFail($id);
+        $fixture = Fixture::findOrFail($score->id_fixture);
+        $fixture->status = 'upcoming';
+        $fixture->save();
+        $score->delete();
+        return redirect('/admin/list-scores');
+    }
+
+
+
 }

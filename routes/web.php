@@ -80,8 +80,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/add-fixture', [FixtureController::class, "create"])->middleware('auth:admin');
     Route::post('/fixture', [FixtureController::class, "store"])->middleware('auth:admin');
     Route::get('/fixture/edit/{id}', [FixtureController::class, 'edit'])->middleware('auth:admin');
-    Route::put('/fixture/edit/{id}', [FixtureController::class, 'update'])->middleware('auth:admin');
     Route::delete('/fixture/delete/{id}', [FixtureController::class, 'destroy'])->middleware('auth:admin');
+
+    Route::get('/list-scores', [ScoreController::class, "indexAdmin"])->middleware('auth:admin');
+    Route::post('/score/{id}', [ScoreController::class, "store"])->middleware('auth:admin');
+    Route::delete('/score/delete/{id}', [ScoreController::class, "destroy"])->middleware('auth:admin');
+
+
 });
 
 Route::prefix('api')->group(function () {

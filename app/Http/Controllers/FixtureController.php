@@ -37,7 +37,7 @@ class FixtureController extends Controller
 
     public function edit($id)
     {
-        $fixture = Fixture::findOrFail($id)->with(['homeTeam', 'awayTeam', 'season'])->first();
+        $fixture = Fixture::with(['homeTeam', 'awayTeam', 'season'])->findOrFail($id);
         return view('fixture.admin.editFixture', [
             'fixture' => $fixture,
         ]);

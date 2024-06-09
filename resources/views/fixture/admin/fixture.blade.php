@@ -40,6 +40,7 @@
                                 <td>{{ $fixture->kickoff }}</td>
                                 <td>{{ $fixture->status }}</td>
                                 <td>
+                                    @if($fixture->status == 'upcoming')
                                     <div class="d-flex justify-content-center gap-1 align-items-center">
                                         <a class="btn btn-primary" href="/admin/fixture/edit/{{ $fixture->id }}">Make Finish</a>
                                         <form action="/admin/fixture/delete/{{ $fixture->id }}" method="POST">
@@ -49,6 +50,11 @@
                                                 href="/admin/fixture/delete/{{ $fixture->id }}">Delete</button>
                                         </form>
                                     </div>
+                                    @else
+                                    <div>
+                                        <p>No Action Needed</p>
+                                    </div>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

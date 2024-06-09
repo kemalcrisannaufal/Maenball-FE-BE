@@ -34,6 +34,11 @@
                 Fixtures
             </div>
         </a>
+        <a href="/admin/list-scores">
+            <div class="box">
+                Score
+            </div>
+        </a>
     </div>
 </div>
 
