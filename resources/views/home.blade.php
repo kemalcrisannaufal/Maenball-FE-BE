@@ -74,7 +74,7 @@
                     @endforeach
                 </div>
 
-                <div class="mt-5">
+                <div class="mt-5" id="maenbal-logo">
                     <img src="images/maenbal.png" alt="">
                 </div>
             </div>
@@ -105,28 +105,36 @@
                         </div>
                         @for ($i = 0; $i < count($fixtures); $i++)
                             @php
-                                $color1 = 'rgb(' . (1 + $i * 15) . ', 109, 171)';
-                                $color2 = 'rgba(' . (52 + $i * 15) . ', 61, 135, 1)';
+                                $color1 = 'rgb(' . (1 + $i * 10) . ', 109, 171)';
+                                $color2 = 'rgba(' . (52 + $i * 10) . ', 61, 135, 1)';
                             @endphp
                             <div class="schedule-box"
                                 style="background: linear-gradient(to left, {{ $color1 }}, {{ $color2 }} );">
                                 <div class="d-flex align-items-center gap-4 w-100" style="color: ">
                                     <div class="versus-container">
                                         <div class="team home-team team-responsive">
-                                            <p>{{ $fixtures[$i]['home_team']['name'] }}</p>
+                                            <img src="{{"/storage/logo/" . $fixtures[$i]['home_team']['logo']}}" alt="" width="45px">
+                                            <div class="team-name">
+                                                <p>{{ $fixtures[$i]['home_team']['name'] }}</p>
+                                            </div>
                                         </div>
                                         <div class="score score-responsive">
-                                            <p class="mb-0">|</p>
+                                            <p class="mb-0">-</p>
                                             <p class="mb-0">VS</p>
-                                            <p class="mb-0">|</p>
+                                            <p class="mb-0">-</p>
                                         </div>
                                         <div class="team away-team team-responsive">
-                                            <p>{{ $fixtures[$i]['away_team']['name'] }}</p>
+                                            <div class="team-name">
+                                                <p>{{ $fixtures[$i]['away_team']['name'] }}</p>
+                                            </div>
+                                        <img src="{{"/storage/logo/" . $fixtures[$i]['away_team']['logo']}}" alt="" width="45px">
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center gap-3">
-                                        <i class="fas fa-clock"></i>
-                                        <p>{{ $fixtures[$i]['kickoff'] }}</p>
+                                        <div class="kickoff-time">
+                                            <i class="fas fa-clock"></i>
+                                            <p>{{ $fixtures[$i]['kickoff'] }}</p>
+                                        </div>
                                     </div>
                                     <div class="stadium">
                                         <div
@@ -141,8 +149,8 @@
                     </div>
                 @endif
 
-                {{--
-                @if (count($score) > 0)
+
+                @if ($score != null)
                     <div class="d-flex justify-content-between mb-3 mt-3">
                         <p class="fw-bold fs-4">Last Matches</p>
                         <a href="/score" class="fw-bold fs-4 text-decoration-none text-dark">View All</a>
@@ -157,39 +165,37 @@
                             <div class="d-flex align-items-center gap-4 w-100">
                                 <div class="versus-container">
                                     <div class="team home-team">
-                                        <p>{{ $score[$i]['home_name'] }}</p>
+                                        <p>{{ $score[$i]['fixture']['home_team']['name'] }}</p>
+                                        <img src="{{"/storage/logo/" . $score[$i]['fixture']['home_team']['logo']}}" alt="" width="45px">
                                     </div>
                                     <div class="score">
-                                        <p class="score-text">{{ $score[$i]['score'] }}</p>
+                                        <p class="score-text">{{ $score[$i]['home_score'] }}</p>
+                                        <p class="text-white fw-bold fs-4">VS</p>
+                                        <p class="score-text">{{ $score[$i]['away_score'] }}</p>
                                     </div>
                                     <div class="team away-team">
-                                        <p>{{ $score[$i]['away_name'] }}</p>
+                                        <img src="{{"/storage/logo/" . $score[$i]['fixture']['away_team']['logo']}}" alt="" width="45px">
+                                        <p>{{ $score[$i]['fixture']['away_team']['name'] }}</p>
                                     </div>
                                 </div>
 
                                 <div class="date-time">
                                     <div class="d-flex justify-content-center align-items-center gap-3 me-2">
-                                        @php
-                                            $utcTime = $score[$i]['date'] . ' ' . $score[$i]['scheduled'];
-                                            $localTime = Carbon\Carbon::parse($utcTime)
-                                                ->setTimezone('Asia/Jakarta')
-                                                ->format('Y-m-d H:i');
-                                        @endphp
                                         <i class="fas fa-clock"></i>
-                                        <p>{{ $localTime }}</p>
+                                        <p>{{ $score[$i]['fixture']['kickoff'] }}</p>
                                     </div>
                                 </div>
                                 <div class="stadium">
                                     <div class="d-flex justify-content-center align-items-center gap-3 location-stadium">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        <p>{{ $score[$i]['location'] }}</p>
+                                        <p>{{ $score[$i]['fixture']['location'] }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @endfor
                 @endif
---}}
+
 
                 <div class="highlight-section">
                     <div class="d-flex justify-content-between mb-3">
@@ -232,7 +238,6 @@
                                                         <img src="{{ $value[$i]['team_badge'] }}"
                                                             alt="{{ $value[$i]['team_name'] }}" width="30px"
                                                             height="30px">
-                                                        {{ $value[$i]['team_name'] }}
                                                         {{ $value[$i]['team_name'] }}
                                                     </div>
                                                 </td>

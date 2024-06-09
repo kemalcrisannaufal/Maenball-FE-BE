@@ -136,16 +136,16 @@ a:hover {
 
 .team {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    text-align: center;
+    text-align: start;
+    gap: 1rem;
     width: 150px;
 }
 
 .score {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     min-width: 50px;
@@ -179,6 +179,10 @@ a:hover {
     .stadium {
         display: none;
     }
+
+    #maenbal-logo {
+        display: none;
+    }
 }
 
 @media (max-width: 991px) {
@@ -202,6 +206,9 @@ a:hover {
         left: 10%;
     }
 
+    #maenbal-logo {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -238,12 +245,19 @@ a:hover {
     }
 
     .team-responsive {
-        width: 75px;
+        width: 40px;
     }
 
     .score-responsive {
         min-width: 15px;
     }
 
+    #maenbal-logo {
+        display: none;
+    }
+
+    .team-name {
+        display: none;
+    }
 
 }
