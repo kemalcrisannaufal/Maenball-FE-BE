@@ -1,6 +1,6 @@
 @extends('layouts.mainAdminLayout')
 
-@section('title', 'List News')
+@section('title', 'List Fixtures')
 
 @section('css', '/css/news/admin-news-style.css')
 
@@ -23,8 +23,6 @@
                             <th scope="col">Season</th>
                             <th scope="col">Home Team</th>
                             <th scope="col">Away Team</th>
-                            <th scope="col">Home Score</th>
-                            <th scope="col">Away Score</th>
                             <th scope="col">Location</th>
                             <th scope="col">Kick-off</th>
                             <th scope="col">Status</th>
@@ -38,8 +36,6 @@
                                 <td>{{ $fixture->season->name }}</td>
                                 <td>{{ $fixture->homeTeam->name }}</td>
                                 <td>{{ $fixture->awayTeam->name  }}</td>
-                                <td>{{ $fixture->home_score }}</td>
-                                <td>{{ $fixture->away_score }}</td>
                                 <td>{{ $fixture->location }}</td>
                                 <td>{{ $fixture->kickoff }}</td>
                                 <td>{{ $fixture->status }}</td>

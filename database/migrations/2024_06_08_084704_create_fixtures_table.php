@@ -20,8 +20,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_season');
             $table->string('location');
             $table->dateTime('kickoff');
-            $table->integer('home_score')->default(0);
-            $table->integer('away_score')->default(0);
             $table->string('status')->default('upcoming');
 
 

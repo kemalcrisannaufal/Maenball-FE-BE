@@ -11,11 +11,11 @@
         <div class="container mt-4">
             <div class="row">
                 <?php $__currentLoopData = $teams; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $team): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow-sm">
+                    <div class="col-md-3 mb-4">
+                        <div class="card shadow-md">
                             <div class="card-body">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <img src="<?php echo e(asset('storage/logo/' . $team->logo)); ?>" alt="<?php echo e($team->name); ?>" height="50" width="50">
+                                <div class="d-flex flex-column gap-3 align-items-center">
+                                    <img src="<?php echo e(asset('storage/logo/' . $team->logo)); ?>" alt="<?php echo e($team->name); ?>" height="150" width="150">
                                     <h5 class="card-title"><?php echo e($team->name); ?></h5>
                                 </div>
                             </div>
@@ -23,6 +23,11 @@
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
+        </div>
+
+        <div class="d-flex justify-content-center my-4">
+            <?php echo e($teams->links('pagination::bootstrap-4')); ?>
+
         </div>
 
     </div>

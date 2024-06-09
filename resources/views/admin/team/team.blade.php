@@ -13,11 +13,11 @@
         <div class="container mt-4">
             <div class="row">
                 @foreach ($teams as $team)
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow-sm">
+                    <div class="col-md-3 mb-4">
+                        <div class="card shadow-md">
                             <div class="card-body">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('storage/logo/' . $team->logo) }}" alt="{{ $team->name }}" height="50" width="50">
+                                <div class="d-flex flex-column gap-3 align-items-center">
+                                    <img src="{{ asset('storage/logo/' . $team->logo) }}" alt="{{ $team->name }}" height="150" width="150">
                                     <h5 class="card-title">{{ $team->name }}</h5>
                                 </div>
                             </div>
@@ -25,6 +25,10 @@
                     </div>
                 @endforeach
             </div>
+        </div>
+
+        <div class="d-flex justify-content-center my-4">
+            {{ $teams->links('pagination::bootstrap-4') }}
         </div>
 
     </div>

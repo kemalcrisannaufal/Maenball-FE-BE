@@ -16,8 +16,6 @@ class Fixture extends Model
         "id_away_team",
         "location",
         "kickoff",
-        "home_score",
-        "away_score",
         "id_season",
         "status",
     ];

@@ -9,7 +9,7 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::get();
+        $teams = Team::paginate(8);
         return view('admin.team.team', [
             'teams' => $teams
         ]);
