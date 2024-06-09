@@ -113,7 +113,8 @@
                                 <div class="d-flex align-items-center gap-4 w-100" style="color: ">
                                     <div class="versus-container">
                                         <div class="team home-team team-responsive">
-                                            <img src="{{"/storage/logo/" . $fixtures[$i]['home_team']['logo']}}" alt="" width="45px">
+                                            <img src="{{ '/storage/logo/' . $fixtures[$i]['home_team']['logo'] }}"
+                                                alt="" width="45px">
                                             <div class="team-name">
                                                 <p>{{ $fixtures[$i]['home_team']['name'] }}</p>
                                             </div>
@@ -124,16 +125,20 @@
                                             <p class="mb-0">-</p>
                                         </div>
                                         <div class="team away-team team-responsive">
+                                            <img src="{{ '/storage/logo/' . $fixtures[$i]['away_team']['logo'] }}"
+                                                alt="" width="45px">
                                             <div class="team-name">
                                                 <p>{{ $fixtures[$i]['away_team']['name'] }}</p>
                                             </div>
-                                        <img src="{{"/storage/logo/" . $fixtures[$i]['away_team']['logo']}}" alt="" width="45px">
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center gap-3">
+                                        @php
+                                            $time = Carbon\Carbon::parse($fixtures[$i]['kickoff'])->format('Y-m-d H:i');
+                                        @endphp
+                                        <i class="fas fa-clock"></i>
                                         <div class="kickoff-time">
-                                            <i class="fas fa-clock"></i>
-                                            <p>{{ $fixtures[$i]['kickoff'] }}</p>
+                                            <p>{{ $time }}</p>
                                         </div>
                                     </div>
                                     <div class="stadium">
@@ -166,7 +171,8 @@
                                 <div class="versus-container">
                                     <div class="team home-team">
                                         <p>{{ $score[$i]['fixture']['home_team']['name'] }}</p>
-                                        <img src="{{"/storage/logo/" . $score[$i]['fixture']['home_team']['logo']}}" alt="" width="45px">
+                                        <img src="{{ '/storage/logo/' . $score[$i]['fixture']['home_team']['logo'] }}"
+                                            alt="" width="45px">
                                     </div>
                                     <div class="score">
                                         <p class="score-text">{{ $score[$i]['home_score'] }}</p>
@@ -174,15 +180,19 @@
                                         <p class="score-text">{{ $score[$i]['away_score'] }}</p>
                                     </div>
                                     <div class="team away-team">
-                                        <img src="{{"/storage/logo/" . $score[$i]['fixture']['away_team']['logo']}}" alt="" width="45px">
+                                        <img src="{{ '/storage/logo/' . $score[$i]['fixture']['away_team']['logo'] }}"
+                                            alt="" width="45px">
                                         <p>{{ $score[$i]['fixture']['away_team']['name'] }}</p>
                                     </div>
                                 </div>
 
                                 <div class="date-time">
                                     <div class="d-flex justify-content-center align-items-center gap-3 me-2">
+                                        @php
+                                            $time = Carbon\Carbon::parse($score[$i]['fixture']['kickoff'])->format('Y-m-d H:i');
+                                        @endphp
                                         <i class="fas fa-clock"></i>
-                                        <p>{{ $score[$i]['fixture']['kickoff'] }}</p>
+                                        <p>{{ $time }}</p>
                                     </div>
                                 </div>
                                 <div class="stadium">
