@@ -20,8 +20,8 @@
             <div class="col-md-8">
 
                 @if ($liked_videos->count() == 0)
-                    <div class="d-flex justify-content-center align-items-center w-100 p-5 text-white bg-primary">
-                        <p class="text-center">Tidak ada video yang anda sukai</p>
+                    <div class="d-flex justify-content-center align-items-center w-100 p-5 text-white" style="background: linear-gradient(to left, rgba(0, 75, 117, 1), rgba(52, 61, 135, 1))">
+                        <p class="text-center fs-3">Tidak ada video yang anda sukai</p>
                     </div>
                 @else
                     <div class="d-flex flex-wrap gap-2">
