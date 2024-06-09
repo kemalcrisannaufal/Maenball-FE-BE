@@ -12,8 +12,8 @@
         </div>
 
         @if ($videos->count() == 0)
-            <div class="p-2 mt-5" style="background-color: rgb(2, 60, 94);">
-                <h5 class="text-white text-center m-0">Tidak ada highlight</h5>
+            <div class="p-2 mt-5"">
+                <h5 class="text-center m-0">Tidak ada highlight</h5>
             </div>
         @else
             <div class="table-responsive mt-2 list-box shadow">
@@ -54,4 +54,8 @@
 
         @endif
     </div>
-    @endsection
+
+    <div class="d-flex justify-content-center">
+        {{ $videos->links('pagination::bootstrap-4') }}
+    </div>
+@endsection

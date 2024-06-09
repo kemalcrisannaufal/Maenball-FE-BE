@@ -4,6 +4,8 @@
 
 <?php $__env->startSection('content'); ?>
 
+<?php $__env->startSection('body', 'admin-bg'); ?>
+
 <div class="container mt-5">
     <h1 class="mb-3">Welcome Admin</h1>
     <div class="d-flex gap-5 justify-content-center">

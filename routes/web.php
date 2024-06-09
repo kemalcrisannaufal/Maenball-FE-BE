@@ -95,5 +95,7 @@ Route::prefix('api')->group(function () {
     Route::post('/login', [APIController::class, 'login']);
     Route::get('/highlights', [APIController::class, 'getAllHighlights']);
     Route::get('/highlights/{id}', [APIController::class, 'highlight']);
+
+    Route::get('/fixtures', [APIController::class, 'getAllFixtures']);
 });
 

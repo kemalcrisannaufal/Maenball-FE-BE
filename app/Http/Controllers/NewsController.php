@@ -48,7 +48,7 @@ class NewsController extends Controller
 
     public function list()
     {
-        $news = News::get();
+        $news = News::paginate(10);
         return view('news.admin.listNews', [
             'news' => $news
         ]);

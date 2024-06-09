@@ -115,10 +115,9 @@ li {
 }
 
 .admin-bg {
-    /* background-image: url("/images/images2.jpg"); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    background  : linear-gradient(to left, rgba(0, 75, 117, 0.5), rgba(52, 61, 135, 0.3));
+    background-image: url("/images/images2.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 @media (max-width: 768px) {

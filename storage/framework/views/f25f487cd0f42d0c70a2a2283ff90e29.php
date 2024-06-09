@@ -26,7 +26,7 @@
     </script>
 </head>
 
-<body>
+<body class=<?php echo $__env->yieldContent('body'); ?>>
     <div class="page-container">
         <div class="container-fluid navbar">
             <a href="/admin/dashboard"><img src="<?php echo e(asset('/images/ligachamp.png')); ?>" alt=""

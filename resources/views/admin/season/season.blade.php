@@ -10,23 +10,28 @@
             <button class="btn-add"><a href="/admin/add-season">Add Seasons</a></button>
         </div>
         <h3 class="my-3">List Season</h3>
-        <div class="container mt-4">
-            <div class="row">
-                @foreach ($seasons as $season)
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex gap-3 align-items-center">
+        @if ($seasons->count() == 0)
+            <div class="p-2 mt-5"">
+                <h5 class="text-center m-0">Tidak ada season</h5>
+            </div>
+        @else
+            <div class="container mt-4">
+                <div class="row">
+                    @foreach ($seasons as $season)
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex gap-3 align-items-center">
 
-                                    <h5 class="card-title">{{ $season->name }}</h5>
+                                        <h5 class="card-title">{{ $season->name }}</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
-
+        @endif
     </div>
 
 @endsection

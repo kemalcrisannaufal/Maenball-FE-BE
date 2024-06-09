@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\Video;
 use GuzzleHttp\Client;
+use App\Models\Fixture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,8 +60,10 @@ class APIController extends Controller
         return response()->json($video);
     }
 
-
-
-
+    public function getAllFixtures()
+    {
+        $fixtures = Fixture::with(['homeTeam', 'awayTeam'])->get();
+        return response()->json($fixtures);
+    }
 
 }

@@ -50,7 +50,7 @@ class VideoController extends Controller
 
     public function list()
     {
-        $videos = Video::with('admin')->get();
+        $videos = Video::with('admin')->paginate(10);
         return view('highlight.admin.listVideo', [
             'videos' => $videos
         ]);

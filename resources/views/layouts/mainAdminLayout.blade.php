@@ -26,7 +26,7 @@
     </script>
 </head>
 
-<body>
+<body class=@yield('body')>
     <div class="page-container">
         <div class="container-fluid navbar">
             <a href="/admin/dashboard"><img src="{{ asset('/images/ligachamp.png') }}" alt=""

@@ -12,8 +12,8 @@
         </div>
         <div class="table-responsive mt-2 list-box shadow">
             @if ($fixtures->count() == 0)
-                <div class="p-2" style="background-color: rgb(2, 60, 94);">
-                    <h5 class="text-white text-center m-0">Data Tidak Ditemukan</h5>
+                <div class="p-2">
+                    <h5 class="text-center m-0">Data Tidak Ditemukan</h5>
                 </div>
             @else
                 <table class="table table-hover table-striped">
