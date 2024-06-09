@@ -56,9 +56,9 @@ p {
 
 .newest-schedule-clubname {
     position: absolute;
-    width: 200px;
+    width: 300px;
     z-index: 1;
-    left: 140%;
+    left: 160%;
     color: white;
     top: 60%;
 }
@@ -68,9 +68,50 @@ p {
     background: linear-gradient(to left, rgba(0, 75, 117, 1), rgb(102, 115, 214));
 }
 
+.match-box {
+    margin-bottom: 1rem;
+    border-radius: .25rem;
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    min-width: 300px;
+}
+
+.team-logo {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.kickoff {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+}
+
+.match{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-responsive {
+    width: 250px;
+    display: none;
+}
+
+.location {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+}
 
 
-@media (max-width: 1400px) {
+@media (min-width: 1200px) and ( max-width: 1400px) {
     .img-box {
         display: flex;
         align-items: center;
@@ -90,9 +131,27 @@ p {
         top: 15%;
     }
 
+    .team-name, .kickoff, .location {
+        display: none;
+    }
+
+    .team-container {
+        min-width: 50px;
+    }
+
+    .card-responsive {
+        min-width: 600px;
+        display: block;
+    }
+
+    .team-logo {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 991px) and ( max-width: 1200px) {
     .img-box {
         display: flex;
         align-items: center;
@@ -111,9 +170,27 @@ p {
     .newest-schedule-match {
         top: 15%;
     }
+
+    .team-name, .kickoff, .location {
+        display: none;
+    }
+
+    .team-container {
+        min-width: 50px;
+    }
+
+    .team-logo {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
+    .card-responsive {
+        display: block;
+        width: 450px;
+    }
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and ( max-width: 991px) {
     .img-box {
         display: flex;
         align-items: center;
@@ -131,6 +208,28 @@ p {
 
     .newest-schedule-match {
         top: 15%;
+    }
+
+    .card-responsive {
+        display: block;
+    }
+
+    .team-name, .kickoff, .location {
+        display: none;
+    }
+
+    .team-container {
+        min-width: 50px;
+    }
+
+    .team-logo {
+        max-width: 60px;
+        max-height: 60px;
+    }
+
+    .card-responsive {
+        display: block;
+        width: 350px;
     }
 }
 
@@ -150,7 +249,19 @@ p {
         top: 23%;
     }
 
+    .card-responsive {
+        display: block;
+    }
+
     .newest-schedule-match {
         top: 18%;
+    }
+
+    .team-name, .kickoff, .location {
+        display: none;
+    }
+
+    .team-container {
+        min-width: 50px;
     }
 }
