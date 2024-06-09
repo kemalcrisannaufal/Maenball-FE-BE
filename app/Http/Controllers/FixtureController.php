@@ -11,8 +11,7 @@ class FixtureController extends Controller
 {
     public function index()
     {
-        $fixtures = Fixture::with(['homeTeam', 'awayTeam'])->get();
-        // dd($fixtures);
+        $fixtures = Fixture::with(['homeTeam', 'awayTeam'])->paginate(10);
         return view('fixture.admin.fixture', [
             'fixtures' => $fixtures
         ]);

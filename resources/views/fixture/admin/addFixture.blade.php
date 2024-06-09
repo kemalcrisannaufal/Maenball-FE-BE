@@ -2,7 +2,7 @@
 
 @section('title', 'Add Fixture')
 
-@section('css', '/css/news/admin-news-style.css')
+@section('css', '/css/form/admin-form-style.css')
 
 @section('content')
 <div class="container mt-5">

@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container mt-5">
-    <h1 class="mb-3">Selamat Datang Admin</h1>
+    <h1 class="mb-3">Welcome Admin</h1>
     <div class="d-flex gap-5 justify-content-center">
         <a href="/admin/list-news">
             <div class="box">

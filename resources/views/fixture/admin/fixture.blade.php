@@ -2,7 +2,7 @@
 
 @section('title', 'List Fixtures')
 
-@section('css', '/css/news/admin-news-style.css')
+@section('css', '/css/form/admin-form-style.css')
 
 @section('content')
     <div class="container mt-5">
@@ -56,6 +56,10 @@
                 </table>
             @endif
         </div>
+    </div>
+
+    <div class="d-flex justify-content-center my-4">
+        {{ $fixtures->links('pagination::bootstrap-4') }}
     </div>
 
 @endsection
