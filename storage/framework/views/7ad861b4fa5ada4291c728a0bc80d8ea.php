@@ -1,6 +1,6 @@
 <?php $__env->startSection('title', 'Add News'); ?>
 
-<?php $__env->startSection('css', '/css/news/admin-news-style.css'); ?>
+<?php $__env->startSection('css', '/css/form/admin-form-style.css'); ?>
 
 <?php $__env->startSection('content'); ?>
 <div class="container mt-5">

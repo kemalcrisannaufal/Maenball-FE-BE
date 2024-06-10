@@ -49,8 +49,28 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+    // public function registerProcess(Request $request)
+    // {
+    //     if ($request->password === $request->confirm_password) {
+    //         $newData = $request->all();
+    //         $newData['password'] = bcrypt($request->password);
+    //         $user = User::create($newData);
+    //         return redirect('/login');
+    //     } else {
+    //         Session::flash('status', 'failed');
+    //         Session::flash('message', 'Password Tidak Sama');
+    //         return redirect('/register');
+    //     }
+    // }
+
     public function registerProcess(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|',
+        ]);
+
         if ($request->password === $request->confirm_password) {
             $newData = $request->all();
             $newData['password'] = bcrypt($request->password);
@@ -62,4 +82,5 @@ class AuthController extends Controller
             return redirect('/register');
         }
     }
+
 }

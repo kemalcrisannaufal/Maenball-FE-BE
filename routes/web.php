@@ -12,11 +12,16 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\FixtureController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\API\AuthAPIController;
+
+use App\Http\Controllers\API\NewsAPIController;
 use App\Http\Controllers\NewsCommentController;
+use App\Http\Controllers\API\ScoreAPIController;
+use App\Http\Controllers\API\VideoAPIController;
+use App\Http\Controllers\API\ScheduleAPIController;
 
 Route::get('/', function () {
     return redirect('/login');
-    // return view('auth.login');
 });
 
 Route::get('/test', [APIController::class, 'getData']);
@@ -90,12 +95,15 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('api')->group(function () {
-    Route::get('/news', [APIController::class, 'getAllNews']);
-    Route::get('/news/{id}', [APIController::class, 'news']);
-    Route::post('/login', [APIController::class, 'login']);
-    Route::get('/highlights', [APIController::class, 'getAllHighlights']);
-    Route::get('/highlights/{id}', [APIController::class, 'highlight']);
-
-    Route::get('/fixtures', [APIController::class, 'getAllFixtures']);
+    Route::post('/login', [AuthAPIController::class, 'login']);
+    Route::post('/register', [AuthAPIController::class, 'register']);
+    Route::get('/logout', [AuthAPIController::class, 'logout']);
+    Route::get('/news', [NewsAPIController::class, 'getAllNews']);
+    Route::get('/news/{id}', [NewsAPIController::class, 'news']);
+    Route::get('/highlights', [VideoAPIController::class, 'getAllHighlights']);
+    Route::get('/highlight/{id}', [VideoAPIController::class, 'highlight']);
+    Route::get('/liked-videos/{id}', [VideoAPIController::class, 'likedVideos']);
+    Route::get('/fixtures', [ScheduleAPIController::class, 'getAllSchedule']);
+    Route::get('/scores', [ScoreAPIController::class, 'getAllScore']);
 });
 
