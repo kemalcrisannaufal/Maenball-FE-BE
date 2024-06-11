@@ -24,8 +24,6 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/test', [APIController::class, 'getData']);
-
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware('auth:web');
 
 Route::get('/register', [AuthController::class, 'register'])->middleware('guest');
@@ -94,16 +92,16 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::prefix('api')->group(function () {
-    Route::post('/login', [AuthAPIController::class, 'login']);
-    Route::post('/register', [AuthAPIController::class, 'register']);
-    Route::get('/logout', [AuthAPIController::class, 'logout']);
-    Route::get('/news', [NewsAPIController::class, 'getAllNews']);
-    Route::get('/news/{id}', [NewsAPIController::class, 'news']);
-    Route::get('/highlights', [VideoAPIController::class, 'getAllHighlights']);
-    Route::get('/highlight/{id}', [VideoAPIController::class, 'highlight']);
-    Route::get('/liked-videos/{id}', [VideoAPIController::class, 'likedVideos']);
-    Route::get('/fixtures', [ScheduleAPIController::class, 'getAllSchedule']);
-    Route::get('/scores', [ScoreAPIController::class, 'getAllScore']);
-});
+// Route::prefix('api')->group(function () {
+    // Route::post('/login', [AuthAPIController::class, 'login']);
+    // Route::post('/register', [AuthAPIController::class, 'register']);
+    // Route::get('/logout', [AuthAPIController::class, 'logout']);
+    // Route::get('/news', [NewsAPIController::class, 'getAllNews']);
+    // Route::get('/news/{id}', [NewsAPIController::class, 'news']);
+    // Route::get('/highlights', [VideoAPIController::class, 'getAllHighlights']);
+    // Route::get('/highlight/{id}', [VideoAPIController::class, 'highlight']);
+    // Route::get('/liked-videos/{id}', [VideoAPIController::class, 'likedVideos']);
+    // Route::get('/fixtures', [ScheduleAPIController::class, 'getAllSchedule']);
+    // Route::get('/scores', [ScoreAPIController::class, 'getAllScore']);
+// });
 

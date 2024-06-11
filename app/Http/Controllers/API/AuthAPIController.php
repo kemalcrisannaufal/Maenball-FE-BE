@@ -42,41 +42,41 @@ class AuthAPIController extends Controller
             ], 422);
         }
     }
-
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        if (Auth::attempt($request->only('email', 'password'))) {
             $user = Auth::user();
+            $token = $user->createToken('API Token')->plainTextToken;
+
             return response()->json([
-                'message' => 'success',
-                'user' => $user,
+                'message' => 'Success',
+                'token' => $token,
+                'user' => $user
             ], 200);
         }
 
-        return response()->json([
-            'message' => 'failed',
-            'errors' => [
-                'email' => ['The provided credentials do not match our records.'],
-            ],
-        ], 401);
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
     }
 
 
     public function logout(Request $request)
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return response()->json([
-            'message' => 'success',
-        ], 200);
+        $user = $request->user();
+
+        if ($user) {
+            $user->currentAccessToken()->delete();
+
+            return response()->json(['message' => 'Logged out successfully'], 200);
+        }
+
+        return response()->json(['message' => 'Unauthenticated'], 401);
     }
 
 }
