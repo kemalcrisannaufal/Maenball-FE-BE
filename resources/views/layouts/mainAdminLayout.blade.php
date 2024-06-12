@@ -40,8 +40,12 @@
                 </ul>
             </div>
         </div>
-        @yield('content')
-    </div>
+
+        <div class="content">
+            @yield('content')
+        </div>
+        </div>
+
 
 
     <div class="footer">

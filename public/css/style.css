@@ -120,6 +120,11 @@ li {
     background-position: center;
 }
 
+.content {
+    flex: 1;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
 
     .navbar ul li a {

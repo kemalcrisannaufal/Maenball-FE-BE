@@ -40,8 +40,12 @@
                 </ul>
             </div>
         </div>
-        <?php echo $__env->yieldContent('content'); ?>
-    </div>
+
+        <div class="content">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div>
+        </div>
+
 
 
     <div class="footer">
