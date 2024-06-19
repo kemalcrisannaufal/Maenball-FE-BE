@@ -10,10 +10,11 @@ class ScoreAPIController extends Controller
 {
     public function getAllScore()
     {
-        $scores = Score::with('fixture.homeTeam', 'fixture.awayTeam', 'fixture.season')->get();
+        $scores = Score::get();
+        dd($scores);
         return response()->json([
             'status' => 'success',
-            'scores' => $scores
+            'data' => $scores
         ], 200);
     }
 }

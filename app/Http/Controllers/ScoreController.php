@@ -13,7 +13,8 @@ class ScoreController extends Controller
 
     public function index()
     {
-        $list_scores = Score::with('fixture.homeTeam', 'fixture.awayTeam', 'fixture.season')->paginate(6);
+        $list_scores = Score::with('fixture.homeTeam', 'fixture.awayTeam', 'fixture.season')->paginate(5
+        );
         $scores = $list_scores->toArray();
         $last_score = $scores['data'][0];
         $scores = array_slice($scores['data'], 1);

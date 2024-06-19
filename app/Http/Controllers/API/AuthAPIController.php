@@ -25,7 +25,7 @@ class AuthAPIController extends Controller
                 $newData['password'] = bcrypt($request->password);
                 $user = User::create($newData);
                 return response()->json([
-                    'message' => 'User registered successfully',
+                    'message' => 'Success',
                     'user' => $user,
                 ], 200);
             } else {
@@ -60,9 +60,9 @@ class AuthAPIController extends Controller
             ], 200);
         }
 
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect.'],
-        ]);
+        return response()->json([
+            'message' => 'Failed',
+        ], 200);
     }
 
 

@@ -14,12 +14,12 @@ Route::get('/user', function (Request $request) {
 
 
 Route::post('/login', [AuthAPIController::class, 'login']);
-    Route::post('/register', [AuthAPIController::class, 'register']);
-    Route::post('/logout', [AuthAPIController::class, 'logout'])->middleware('auth:sanctum');
-    Route::get('/news', [NewsAPIController::class, 'getAllNews']);
-    Route::get('/news/{id}', [NewsAPIController::class, 'news']);
-    Route::get('/highlights', [VideoAPIController::class, 'getAllHighlights']);
-    Route::get('/highlight/{id}', [VideoAPIController::class, 'highlight']);
-    Route::get('/liked-videos/{id}', [VideoAPIController::class, 'likedVideos']);
-    Route::get('/fixtures', [ScheduleAPIController::class, 'getAllSchedule']);
-    Route::get('/scores', [ScoreAPIController::class, 'getAllScore']);
+Route::post('/register', [AuthAPIController::class, 'register']);
+Route::post('/logout', [AuthAPIController::class, 'logout'])->middleware('auth:sanctum');
+Route::get('/news', [NewsAPIController::class, 'getAllNews']);
+Route::get('/news/{id}', [NewsAPIController::class, 'news']);
+Route::get('/highlights', [VideoAPIController::class, 'getAllHighlights']);
+Route::get('/highlight/{id}', [VideoAPIController::class, 'highlight']);
+Route::get('/liked-videos/{id}', [VideoAPIController::class, 'likedVideos']);
+Route::get('/fixtures', [ScheduleAPIController::class, 'getAllSchedule']);
+Route::get('/scores', [ScoreAPIController::class, 'getAllScore']);

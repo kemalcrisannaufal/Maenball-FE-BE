@@ -10,7 +10,7 @@ class ScheduleAPIController extends Controller
 {
     public function getAllSchedule()
     {
-        $fixtures = Fixture::with(['homeTeam', 'awayTeam']);
+        $fixtures = Fixture::with(['homeTeam', 'awayTeam'])->where('status', 'upcoming')->get();
         return response()->json([
             'success' => true,
             'data' => $fixtures

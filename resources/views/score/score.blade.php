@@ -97,7 +97,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center my-3">
                         {{ $list_scores->links('pagination::bootstrap-4') }}
                     </div>
                 </div>

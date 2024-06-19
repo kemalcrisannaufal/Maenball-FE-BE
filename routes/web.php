@@ -88,20 +88,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/list-scores', [ScoreController::class, "indexAdmin"])->middleware('auth:admin');
     Route::post('/score/{id}', [ScoreController::class, "store"])->middleware('auth:admin');
     Route::delete('/score/delete/{id}', [ScoreController::class, "destroy"])->middleware('auth:admin');
-
-
 });
-
-// Route::prefix('api')->group(function () {
-    // Route::post('/login', [AuthAPIController::class, 'login']);
-    // Route::post('/register', [AuthAPIController::class, 'register']);
-    // Route::get('/logout', [AuthAPIController::class, 'logout']);
-    // Route::get('/news', [NewsAPIController::class, 'getAllNews']);
-    // Route::get('/news/{id}', [NewsAPIController::class, 'news']);
-    // Route::get('/highlights', [VideoAPIController::class, 'getAllHighlights']);
-    // Route::get('/highlight/{id}', [VideoAPIController::class, 'highlight']);
-    // Route::get('/liked-videos/{id}', [VideoAPIController::class, 'likedVideos']);
-    // Route::get('/fixtures', [ScheduleAPIController::class, 'getAllSchedule']);
-    // Route::get('/scores', [ScoreAPIController::class, 'getAllScore']);
-// });
 

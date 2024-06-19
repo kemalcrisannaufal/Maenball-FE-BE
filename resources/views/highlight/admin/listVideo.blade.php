@@ -55,7 +55,7 @@
         @endif
     </div>
 
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center my-3">
         {{ $videos->links('pagination::bootstrap-4') }}
     </div>
 @endsection

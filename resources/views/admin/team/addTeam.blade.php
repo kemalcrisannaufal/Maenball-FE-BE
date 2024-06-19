@@ -15,6 +15,10 @@
                 <input type="text" class="form-control" name="name" placeholder="Team Name">
             </div>
             <div class="mb-3">
+                <label for="initial" class="form-label">Initial</label>
+                <input type="text" class="form-control" name="initial" placeholder="Initial Team Name">
+            </div>
+            <div class="mb-3">
                 <label for="logo" class="form-label">Logo</label>
                 <input type="file" class="form-control" id="logo" name="logo">
             </div>
